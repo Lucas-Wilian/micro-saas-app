@@ -1,26 +1,5 @@
-// type SidebarProps = {
-//   paths: Array<{
-//     label: string;
-//     href: string;
-//   }>;
-// };
-
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-
-// export function Sidebar({ paths }: SidebarProps) {
-//   return (
-//     <main className='flex items-center justify-center h-screen'>
-//       <nav>
-//         {paths.map((path) => (
-//           <a key={path.href} href={path.href}>
-//             {path.label}
-//           </a>
-//         ))}
-//       </nav>
-//     </main>
-//   );
-// }
 
 export type SiderBarProps<T = any> = {
   children: React.ReactNode;
@@ -45,7 +24,11 @@ export function SidebarHeader({
   children,
 }: SiderBarProps) {
   return (
-    <header className={cn(['px-6', className])}>{children}</header>
+    <header
+      className={cn(['p-6 py-3 border-b border-border', className])}
+    >
+      {children}
+    </header>
   );
 }
 
