@@ -14,8 +14,13 @@ import { HomeIcon, MixerVerticalIcon } from '@radix-ui/react-icons';
 import { usePathname } from 'next/navigation';
 import { UserDropdown } from './user-dropdown';
 import Logo from '@/components/logo';
+import { Session } from 'next-auth';
 
-export function MainSidebar() {
+type MainSideBarProps = {
+  user: Session['user'];
+};
+
+export function MainSidebar({ user }: MainSideBarProps) {
   const pathname = usePathname();
 
   const isActive = (path: string) => {
@@ -59,7 +64,7 @@ export function MainSidebar() {
         </SidebarNav>
       </SidebarMain>
       <SidebarFooter>
-        <UserDropdown />
+        <UserDropdown user={user} />
       </SidebarFooter>
     </Sidebar>
   );
