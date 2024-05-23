@@ -22,7 +22,7 @@ import { Session } from 'next-auth';
 import { signOut } from 'next-auth/react';
 
 type UserDropdownProps = {
-  user?: Session['user'];
+  user: Session['user'];
 };
 
 export function UserDropdown({ user }: UserDropdownProps) {
